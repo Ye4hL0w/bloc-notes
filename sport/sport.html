@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entraînements Sportifs</title>
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="sport.css">
+</head>
+<body>
+    <header>
+        <h1>Suivi de mes Entraînements Sportifs</h1>
+        <a href="../index.html" class="back-button">Retour à l'accueil</a>
+    </header>
+    
+    <main>
+        <div class="workout-container">
+            <div class="workout-form">
+                <h2>Ajouter un entraînement</h2>
+                <form id="workout-form">
+                    <div class="form-group">
+                        <label for="workout-type">Type d'entraînement:</label>
+                        <select id="workout-type" required>
+                            <option value="" disabled selected>Choisir un type</option>
+                            <option value="Cardio">Cardio</option>
+                            <option value="Musculation">Musculation</option>
+                            <option value="Natation">Natation</option>
+                            <option value="Course">Course</option>
+                            <option value="Vélo">Vélo</option>
+                            <option value="Autre">Autre</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="workout-date">Date:</label>
+                        <input type="date" id="workout-date" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="workout-time">Heure:</label>
+                        <input type="time" id="workout-time" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="workout-duration">Durée (minutes):</label>
+                        <input type="number" id="workout-duration" min="1" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="workout-notes">Notes (optionnel):</label>
+                        <textarea id="workout-notes" rows="3"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="add-workout-button">
+                        <span class="button-text">Ajouter</span>
+                        <span class="button-icon">+</span>
+                    </button>
+                </form>
+            </div>
+            
+            <div class="workout-history">
+                <h2>Historique des entraînements</h2>
+                <div class="filter-controls">
+                    <label for="filter-type">Filtrer par type:</label>
+                    <select id="filter-type">
+                        <option value="Tous">Tous</option>
+                        <option value="Cardio">Cardio</option>
+                        <option value="Musculation">Musculation</option>
+                        <option value="Natation">Natation</option>
+                        <option value="Course">Course</option>
+                        <option value="Vélo">Vélo</option>
+                        <option value="Autre">Autre</option>
+                    </select>
+                </div>
+                
+                <ul id="workout-list" class="workout-list">
+                    <!-- Les entraînements seront ajoutés ici dynamiquement -->
+                    <li class="no-workouts-message">Aucun entraînement enregistré</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <p>© 2025 - Bloc-Notes de Jerem</p>
+    </footer>
+
+    <script src="sport.js"></script>
+</body>
+</html> 

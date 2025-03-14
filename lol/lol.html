@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>League of Legends</title>
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="lol.css">
+</head>
+<body>
+    <header>
+        <h1>Suivi de mes parties League of Legends</h1>
+        <a href="../index.html" class="back-button">Retour à l'accueil</a>
+    </header>
+    
+    <main>
+        <div class="champions-container">
+            <!-- Jinx -->
+            <div class="champion-card">
+                <div class="champion-image">
+                    <img src="images/jinx.jpg" alt="Jinx" onerror="this.src='https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Jinx_0.jpg';">
+                </div>
+                <h2>Jinx</h2>
+                <div class="counter-container">
+                    <span class="counter" id="jinx-counter">0</span>
+                    <span class="counter-label">parties jouées</span>
+                </div>
+                <button class="increment-button" id="jinx-button" onclick="incrementCounter('jinx')">
+                    <span class="button-text">Ajouter une partie</span>
+                    <span class="button-icon">+</span>
+                </button>
+            </div>
+            
+            <!-- Sivir -->
+            <div class="champion-card">
+                <div class="champion-image">
+                    <img src="images/sivir.jpg" alt="Sivir" onerror="this.src='https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Sivir_0.jpg';">
+                </div>
+                <h2>Sivir</h2>
+                <div class="counter-container">
+                    <span class="counter" id="sivir-counter">0</span>
+                    <span class="counter-label">parties jouées</span>
+                </div>
+                <button class="increment-button" id="sivir-button" onclick="incrementCounter('sivir')">
+                    <span class="button-text">Ajouter une partie</span>
+                    <span class="button-icon">+</span>
+                </button>
+            </div>
+            
+            <!-- Maître Yi -->
+            <div class="champion-card">
+                <div class="champion-image">
+                    <img src="images/masteryi.jpg" alt="Maître Yi" onerror="this.src='https://ddragon.leagueoflegends.com/cdn/img/champion/splash/MasterYi_0.jpg';">
+                </div>
+                <h2>Maître Yi</h2>
+                <div class="counter-container">
+                    <span class="counter" id="masteryi-counter">0</span>
+                    <span class="counter-label">parties jouées</span>
+                </div>
+                <button class="increment-button" id="masteryi-button" onclick="incrementCounter('masteryi')">
+                    <span class="button-text">Ajouter une partie</span>
+                    <span class="button-icon">+</span>
+                </button>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <p>© 2025 - Bloc-Notes de Jerem</p>
+    </footer>
+
+    <script src="lol.js"></script>
+</body>
+</html> 
