@@ -1,3 +1,40 @@
+// Initialisation du contexte audio pour les sons
+let audioContext;
+
+// Fonction pour initialiser le contexte audio (doit être appelée suite à une interaction utilisateur)
+function initAudioContext() {
+    if (!audioContext) {
+        audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    }
+}
+
+// Fonction pour jouer un son de clic
+function playClickSound() {
+    // Initialiser le contexte audio si ce n'est pas déjà fait
+    initAudioContext();
+    
+    // Créer un oscillateur (générateur de son)
+    const oscillator = audioContext.createOscillator();
+    const gainNode = audioContext.createGain();
+    
+    // Configurer l'oscillateur
+    oscillator.type = 'sine'; // Type de son (sine, square, sawtooth, triangle)
+    oscillator.frequency.setValueAtTime(800, audioContext.currentTime); // Fréquence en Hz
+    oscillator.frequency.exponentialRampToValueAtTime(400, audioContext.currentTime + 0.1); // Effet de descente
+    
+    // Configurer le volume
+    gainNode.gain.setValueAtTime(0.3, audioContext.currentTime); // Volume initial
+    gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.1); // Fade out
+    
+    // Connecter les nœuds
+    oscillator.connect(gainNode);
+    gainNode.connect(audioContext.destination);
+    
+    // Démarrer le son et l'arrêter après un court délai
+    oscillator.start();
+    oscillator.stop(audioContext.currentTime + 0.1);
+}
+
 // Fonction pour charger les compteurs depuis le stockage local
 function loadCounters() {
     const champions = ['jinx', 'sivir', 'masteryi'];
@@ -22,6 +59,9 @@ function incrementCounter(champion) {
     
     // Sauvegarder dans le stockage local
     localStorage.setItem(`${champion}-count`, count);
+    
+    // Jouer le son de clic
+    playClickSound();
     
     // Ajouter une animation satisfaisante
     const button = document.getElementById(`${champion}-button`);
